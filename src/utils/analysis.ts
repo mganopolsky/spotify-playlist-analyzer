@@ -9,11 +9,11 @@ import {
 } from '../types/spotify';
 
 export class PlaylistAnalyzer {
-    private static calculateAverages(numbers: number[]): number {
+    protected static calculateAverages(numbers: number[]): number {
         return numbers.reduce((acc, val) => acc + val, 0) / numbers.length;
     }
 
-    private static calculatePopularityDistribution(tracks: SpotifyTrack[]) {
+    protected static calculatePopularityDistribution(tracks: SpotifyTrack[]) {
         const total = tracks.length;
         const distribution = tracks.reduce(
             (acc, track) => {
@@ -32,7 +32,7 @@ export class PlaylistAnalyzer {
         };
     }
 
-    private static calculateAudioFeatureAverages(features: (AudioFeatures | null)[]) {
+    protected static calculateAudioFeatureAverages(features: (AudioFeatures | null)[]) {
         return {
             danceability: this.calculateAverages(features.filter(f => f !== null).map(f => f.danceability)),
             energy: this.calculateAverages(features.filter(f => f !== null).map(f => f.energy)),
@@ -69,7 +69,7 @@ export class PlaylistAnalyzer {
         };
     }
 
-    private static calculateUpdateFrequency(tracks: any[]): number {
+    protected static calculateUpdateFrequency(tracks: any[]): number {
         if (tracks.length < 2) return 0;
         
         const dates = tracks
