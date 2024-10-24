@@ -91,7 +91,7 @@ This project uses the Spotify Web API to fetch data. The main API endpoint used 
   - `GET https://api.spotify.com/v1/playlists/{playlist_id}`
 
 ## TODO: 
-    - The next order of business is to upload data back to Spotify
+The next order of business is to upload data back to Spotify
 
 ## License
 
